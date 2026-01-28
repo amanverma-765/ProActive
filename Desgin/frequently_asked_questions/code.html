@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Frequently Asked Questions - ProActive Physiotherapy</title>
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df259",
+                        "primary-dark": "#0bbd45",
+                        "background-light": "#f5f8f6",
+                        "background-dark": "#102216",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a3322",
+                        "text-main-light": "#0d1c12",
+                        "text-main-dark": "#f0fdf4",
+                        "text-sec-light": "#499c65",
+                        "text-sec-dark": "#86efac",
+                        "border-light": "#e7f4eb",
+                        "border-dark": "#23422e",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom styles for accordion animation */
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details[open] summary~* {
+            animation: sweep .3s ease-in-out;
+        }
+
+        @keyframes sweep {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px)
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col text-text-main-light dark:text-text-main-dark transition-colors duration-200">
+    <!-- Top Navigation -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-border-light dark:border-border-dark bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+        <div class="max-w-[1280px] mx-auto px-4 sm:px-10 py-3">
+            <div class="flex items-center justify-between whitespace-nowrap">
+                <div class="flex items-center gap-4">
+                    <div class="text-primary size-8 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl">local_hospital</span>
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] hidden sm:block">ProActive
+                        Physiotherapy</h2>
+                </div>
+                <div class="flex items-center gap-4 sm:gap-8">
+                    <nav class="hidden md:flex items-center gap-9">
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Services</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Team</a>
+                        <a class="text-sm font-bold text-primary" href="#">FAQ</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+                    </nav>
+                    <button
+                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary-dark transition-colors text-text-main-light text-sm font-bold tracking-[0.015em]">
+                        <span class="truncate">Book Appointment</span>
+                    </button>
+                    <!-- Mobile Menu Icon -->
+                    <button class="md:hidden p-2 text-text-main-light dark:text-text-main-dark">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex-grow flex flex-col items-center w-full">
+        <div class="w-full max-w-[960px] px-4 sm:px-6 lg:px-8 py-10 sm:py-16 flex flex-col gap-10">
+            <!-- Hero Section -->
+            <section class="flex flex-col gap-4 text-center items-center animate-fade-in-up">
+                <h1 class="text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">
+                    Frequently Asked Questions
+                </h1>
+                <p class="text-text-sec-light dark:text-text-sec-dark text-lg font-normal max-w-2xl leading-relaxed">
+                    Everything you need to know about your recovery journey with ProActive. Find answers about
+                    insurance, first visits, and more.
+                </p>
+            </section>
+            <!-- Search and Filter Section -->
+            <section class="w-full flex flex-col items-center gap-6">
+                <!-- Search Bar -->
+                <div class="w-full max-w-2xl relative group">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <span
+                            class="material-symbols-outlined text-text-sec-light dark:text-text-sec-dark">search</span>
+                    </div>
+                    <input
+                        class="block w-full h-14 pl-12 pr-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark focus:border-primary focus:ring-2 focus:ring-primary/20 text-text-main-light dark:text-text-main-dark placeholder-text-sec-light dark:placeholder-text-sec-dark transition-all shadow-sm text-base"
+                        placeholder="Search for a topic (e.g., insurance, first visit)..." type="text" />
+                </div>
+                <!-- Chips -->
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button
+                        class="flex h-9 items-center justify-center px-4 rounded-full bg-primary text-text-main-light text-sm font-bold shadow-sm ring-2 ring-primary ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark transition-all">
+                        All
+                    </button>
+                    <button
+                        class="flex h-9 items-center justify-center px-4 rounded-full bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark hover:border-primary text-text-main-light dark:text-text-main-dark hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors shadow-sm">
+                        New Patients
+                    </button>
+                    <button
+                        class="flex h-9 items-center justify-center px-4 rounded-full bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark hover:border-primary text-text-main-light dark:text-text-main-dark hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors shadow-sm">
+                        Treatments
+                    </button>
+                    <button
+                        class="flex h-9 items-center justify-center px-4 rounded-full bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark hover:border-primary text-text-main-light dark:text-text-main-dark hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors shadow-sm">
+                        Billing &amp; Insurance
+                    </button>
+                </div>
+            </section>
+            <!-- Accordion List -->
+            <section class="w-full flex flex-col gap-4 mt-4">
+                <!-- Item 1 -->
+                <details
+                    class="group rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden transition-all duration-300 hover:shadow-md"
+                    open="">
+                    <summary
+                        class="flex cursor-pointer items-center justify-between gap-6 p-6 select-none bg-transparent hover:bg-gray-50 dark:hover:bg-surface-dark/80 transition-colors">
+                        <h3 class="text-base sm:text-lg font-bold text-text-main-light dark:text-text-main-dark">What
+                            should I expect on my first visit?</h3>
+                        <div
+                            class="flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary group-open:bg-primary group-open:text-text-main-light transition-all duration-300 group-open:rotate-180">
+                            <span class="material-symbols-outlined">expand_more</span>
+                        </div>
+                    </summary>
+                    <div class="px-6 pb-6 pt-0">
+                        <p class="text-text-sec-light dark:text-text-sec-dark text-sm sm:text-base leading-relaxed">
+                            Your first visit is all about understanding you. It will involve a comprehensive assessment
+                            of your condition, a detailed discussion about your personal recovery goals, and the
+                            creation of a personalized treatment plan. Please bring any relevant medical reports and
+                            wear comfortable clothing that allows for easy movement.
+                        </p>
+                    </div>
+                </details>
+                <!-- Item 2 -->
+                <details
+                    class="group rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <summary
+                        class="flex cursor-pointer items-center justify-between gap-6 p-6 select-none bg-transparent hover:bg-gray-50 dark:hover:bg-surface-dark/80 transition-colors">
+                        <h3 class="text-base sm:text-lg font-bold text-text-main-light dark:text-text-main-dark">Do I
+                            need a doctor's referral?</h3>
+                        <div
+                            class="flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary group-open:bg-primary group-open:text-text-main-light transition-all duration-300 group-open:rotate-180">
+                            <span class="material-symbols-outlined">expand_more</span>
+                        </div>
+                    </summary>
+                    <div class="px-6 pb-6 pt-0">
+                        <p class="text-text-sec-light dark:text-text-sec-dark text-sm sm:text-base leading-relaxed">
+                            In many cases, you do not need a referral to begin physiotherapy, thanks to "Direct Access"
+                            laws. However, some insurance plans may require one for reimbursement. We recommend checking
+                            with your provider or giving our front desk a call at +917518840048 so we can verify your
+                            benefits for you.
+                        </p>
+                    </div>
+                </details>
+                <!-- Item 3 -->
+                <details
+                    class="group rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <summary
+                        class="flex cursor-pointer items-center justify-between gap-6 p-6 select-none bg-transparent hover:bg-gray-50 dark:hover:bg-surface-dark/80 transition-colors">
+                        <h3 class="text-base sm:text-lg font-bold text-text-main-light dark:text-text-main-dark">Do you
+                            accept my insurance?</h3>
+                        <div
+                            class="flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary group-open:bg-primary group-open:text-text-main-light transition-all duration-300 group-open:rotate-180">
+                            <span class="material-symbols-outlined">expand_more</span>
+                        </div>
+                    </summary>
+                    <div class="px-6 pb-6 pt-0">
+                        <p class="text-text-sec-light dark:text-text-sec-dark text-sm sm:text-base leading-relaxed">
+                            We accept most major insurance plans, including Blue Cross, Aetna, Cigna, and Medicare.
+                            Since plans vary significantly, please contact our billing department before your visit so
+                            we can give you a clear estimate of any co-pays or deductibles.
+                        </p>
+                    </div>
+                </details>
+                <!-- Item 4 -->
+                <details
+                    class="group rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <summary
+                        class="flex cursor-pointer items-center justify-between gap-6 p-6 select-none bg-transparent hover:bg-gray-50 dark:hover:bg-surface-dark/80 transition-colors">
+                        <h3 class="text-base sm:text-lg font-bold text-text-main-light dark:text-text-main-dark">How
+                            long is a typical session?</h3>
+                        <div
+                            class="flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary group-open:bg-primary group-open:text-text-main-light transition-all duration-300 group-open:rotate-180">
+                            <span class="material-symbols-outlined">expand_more</span>
+                        </div>
+                    </summary>
+                    <div class="px-6 pb-6 pt-0">
+                        <p class="text-text-sec-light dark:text-text-sec-dark text-sm sm:text-base leading-relaxed">
+                            Initial evaluations typically last about 60 minutes. Follow-up treatment sessions usually
+                            range from 30 to 45 minutes, depending on the complexity of your condition and the specific
+                            therapies being performed.
+                        </p>
+                    </div>
+                </details>
+                <!-- Item 5 -->
+                <details
+                    class="group rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <summary
+                        class="flex cursor-pointer items-center justify-between gap-6 p-6 select-none bg-transparent hover:bg-gray-50 dark:hover:bg-surface-dark/80 transition-colors">
+                        <h3 class="text-base sm:text-lg font-bold text-text-main-light dark:text-text-main-dark">Is
+                            there parking available?</h3>
+                        <div
+                            class="flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary group-open:bg-primary group-open:text-text-main-light transition-all duration-300 group-open:rotate-180">
+                            <span class="material-symbols-outlined">expand_more</span>
+                        </div>
+                    </summary>
+                    <div class="px-6 pb-6 pt-0">
+                        <p class="text-text-sec-light dark:text-text-sec-dark text-sm sm:text-base leading-relaxed">
+                            Yes, we have a dedicated patient parking lot directly behind the building. It is free of
+                            charge for all ProActive patients during their appointment times. Wheelchair accessible
+                            spots are located near the ramp entrance.
+                        </p>
+                    </div>
+                </details>
+                <!-- Item 6 -->
+                <details
+                    class="group rounded-xl border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <summary
+                        class="flex cursor-pointer items-center justify-between gap-6 p-6 select-none bg-transparent hover:bg-gray-50 dark:hover:bg-surface-dark/80 transition-colors">
+                        <h3 class="text-base sm:text-lg font-bold text-text-main-light dark:text-text-main-dark">What if
+                            I need to cancel my appointment?</h3>
+                        <div
+                            class="flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary group-open:bg-primary group-open:text-text-main-light transition-all duration-300 group-open:rotate-180">
+                            <span class="material-symbols-outlined">expand_more</span>
+                        </div>
+                    </summary>
+                    <div class="px-6 pb-6 pt-0">
+                        <p class="text-text-sec-light dark:text-text-sec-dark text-sm sm:text-base leading-relaxed">
+                            We understand that life happens. We ask for at least 24 hours' notice for cancellations so
+                            we can offer that time slot to another patient who may need care. Cancellations made with
+                            less than 24 hours' notice may be subject to a fee.
+                        </p>
+                    </div>
+                </details>
+            </section>
+            <!-- Still Have Questions CTA -->
+            <section class="w-full mt-8">
+                <div
+                    class="relative overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
+                    <!-- Decor element -->
+                    <div
+                        class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl pointer-events-none">
+                    </div>
+                    <div class="flex flex-col gap-3 relative z-10 text-center md:text-left">
+                        <h2 class="text-2xl font-bold text-text-main-light dark:text-text-main-dark">Can't find what
+                            you're looking for?</h2>
+                        <p class="text-text-sec-light dark:text-text-sec-dark">Our friendly team is here to help with
+                            any specific questions.</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 relative z-10 w-full md:w-auto">
+                        <a class="flex items-center justify-center gap-2 h-12 px-6 rounded-lg border border-border-light dark:border-border-dark bg-transparent hover:bg-background-light dark:hover:bg-background-dark text-text-main-light dark:text-text-main-dark font-bold transition-colors w-full sm:w-auto"
+                            href="#">
+                            <span class="material-symbols-outlined text-xl">call</span>
+                            <span>+917518840048</span>
+                        </a>
+                        <a class="flex items-center justify-center h-12 px-6 rounded-lg bg-primary hover:bg-primary-dark text-text-main-light font-bold transition-colors w-full sm:w-auto shadow-lg shadow-primary/20"
+                            href="#">
+                            Contact Our Team
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark pt-16 pb-8">
+        <div class="max-w-[1280px] mx-auto px-4 sm:px-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+                    <div class="flex items-center gap-2 text-text-main-light dark:text-text-main-dark">
+                        <span class="material-symbols-outlined text-primary text-3xl">local_hospital</span>
+                        <span class="font-bold text-lg">ProActive</span>
+                    </div>
+                    <p class="text-text-sec-light dark:text-text-sec-dark text-sm">
+                        Helping you move better, feel better, and live better through personalized physiotherapy care.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-text-main-light dark:text-text-main-dark mb-4">Quick Links</h4>
+                    <ul class="flex flex-col gap-2 text-sm text-text-sec-light dark:text-text-sec-dark">
+                        <li><a class="hover:text-primary transition-colors" href="#">Home</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Services</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Team</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-text-main-light dark:text-text-main-dark mb-4">Services</h4>
+                    <ul class="flex flex-col gap-2 text-sm text-text-sec-light dark:text-text-sec-dark">
+                        <li><a class="hover:text-primary transition-colors" href="#">Manual Therapy</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Sports Rehabilitation</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Post-Op Care</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Dry Needling</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-text-main-light dark:text-text-main-dark mb-4">Visit Us</h4>
+                    <ul class="flex flex-col gap-3 text-sm text-text-sec-light dark:text-text-sec-dark">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-lg mt-0.5">location_on</span>
+                            <span>Shop no-26, Ground Floor,<br />City square complex, Square, Sai Rd,<br />opposite to
+                                Petrol Pump, Baddi,<br />Himachal Pradesh 173205</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-lg">schedule</span>
+                            <span>Mon-Fri: 8am - 7pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-border-light dark:border-border-dark flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-text-sec-light dark:text-text-sec-dark">© 2024 ProActive Physiotherapy. All
+                    rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="text-text-sec-light dark:text-text-sec-dark hover:text-primary transition-colors"
+                        href="#">
+                        <span class="sr-only">Facebook</span>
+                        <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                            <path clip-rule="evenodd"
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                fill-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a class="text-text-sec-light dark:text-text-sec-dark hover:text-primary transition-colors"
+                        href="#">
+                        <span class="sr-only">Instagram</span>
+                        <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                            <path clip-rule="evenodd"
+                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.48 2h.165zm-1.95 21.94c.045-.487.054-.93.054-1.36 0-3.635-1.93-6.95-4.872-8.683-.878-.517-1.802-.916-2.756-1.196 1.89-2.228 4.673-3.633 7.78-3.633 5.56 0 10.076 4.477 10.076 10 0 .546-.044 1.08-.128 1.6l-.375 2.273h-9.78z"
+                                fill-rule="evenodd"></path>
+                            <path
+                                d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 112.881 0 1.44 1.44 0 01-2.88 0z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

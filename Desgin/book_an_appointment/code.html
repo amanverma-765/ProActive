@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book an Appointment - ProActive Physiotherapy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df259",
+                        "primary-hover": "#0be050",
+                        "background-light": "#f8fcf9",
+                        "background-dark": "#102216",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a2e22",
+                        "text-main-light": "#0d1c12",
+                        "text-main-dark": "#e7f4eb",
+                        "text-sec-light": "#499c65",
+                        "text-sec-dark": "#8bc49e",
+                        "border-light": "#e7f4eb",
+                        "border-dark": "#2a4234",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main-light dark:text-text-main-dark transition-colors duration-200">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-border-light dark:border-border-dark bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+<div class="container mx-auto px-4 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-text-main-light">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+<span class="text-lg font-bold tracking-tight">ProActive Physiotherapy</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Team</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex h-9 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-text-main-light hover:bg-primary-hover transition-colors">
+                        My Bookings
+                    </button>
+<!-- Mobile Menu Button -->
+<button class="md:hidden p-2 text-text-main-light dark:text-text-main-dark">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="container mx-auto px-4 py-8 lg:px-8 lg:py-12">
+<!-- Page Heading -->
+<div class="mb-8 md:mb-12">
+<h1 class="text-3xl md:text-4xl font-black tracking-tight mb-2">Book Your Recovery Session</h1>
+<p class="text-text-sec-light dark:text-text-sec-dark text-lg">Select a service, choose your therapist, and pick a time that works for you.</p>
+</div>
+<!-- Progress Stepper (Breadcrumbs style) -->
+<div class="mb-10 overflow-x-auto">
+<div class="flex min-w-max items-center gap-4 text-sm font-medium">
+<div class="flex items-center gap-2 text-primary">
+<span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-text-main-light text-xs font-bold">1</span>
+<span>Service</span>
+</div>
+<div class="h-px w-8 bg-border-dark/20 dark:bg-border-light/20"></div>
+<div class="flex items-center gap-2 text-text-sec-light dark:text-text-sec-dark">
+<span class="flex h-6 w-6 items-center justify-center rounded-full border border-current text-xs font-bold">2</span>
+<span>Therapist</span>
+</div>
+<div class="h-px w-8 bg-border-dark/20 dark:bg-border-light/20"></div>
+<div class="flex items-center gap-2 text-text-sec-light dark:text-text-sec-dark">
+<span class="flex h-6 w-6 items-center justify-center rounded-full border border-current text-xs font-bold">3</span>
+<span>Time</span>
+</div>
+<div class="h-px w-8 bg-border-dark/20 dark:bg-border-light/20"></div>
+<div class="flex items-center gap-2 text-text-sec-light dark:text-text-sec-dark">
+<span class="flex h-6 w-6 items-center justify-center rounded-full border border-current text-xs font-bold">4</span>
+<span>Details</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Booking Flow -->
+<div class="lg:col-span-8 space-y-10">
+<!-- Step 1: Services -->
+<section>
+<h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">spa</span>
+                        1. Select a Service
+                    </h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+<!-- Active Card -->
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border-2 border-primary bg-primary/10 p-5 transition-all">
+<div class="absolute right-3 top-3 text-primary">
+<span class="material-symbols-outlined filled">check_circle</span>
+</div>
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary-dark">
+<span class="material-symbols-outlined text-2xl">self_improvement</span>
+</div>
+<h3 class="font-bold text-lg mb-1">Physiotherapy</h3>
+<p class="text-sm text-text-sec-light dark:text-text-sec-dark mb-3">Initial assessment and treatment plan.</p>
+<p class="font-bold text-text-main-light dark:text-text-main-dark">60 min • $100</p>
+</div>
+<!-- Card 2 -->
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-5 shadow-sm transition-all hover:border-primary/50 hover:shadow-md">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-background-light dark:bg-background-dark text-text-sec-light dark:text-text-sec-dark">
+<span class="material-symbols-outlined text-2xl">massage</span>
+</div>
+<h3 class="font-bold text-lg mb-1">Massage Therapy</h3>
+<p class="text-sm text-text-sec-light dark:text-text-sec-dark mb-3">Deep tissue release and relaxation.</p>
+<p class="font-bold text-text-main-light dark:text-text-main-dark">60 min • $90</p>
+</div>
+<!-- Card 3 -->
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-5 shadow-sm transition-all hover:border-primary/50 hover:shadow-md">
+<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-background-light dark:bg-background-dark text-text-sec-light dark:text-text-sec-dark">
+<span class="material-symbols-outlined text-2xl">acupuncture</span>
+</div>
+<h3 class="font-bold text-lg mb-1">Acupuncture</h3>
+<p class="text-sm text-text-sec-light dark:text-text-sec-dark mb-3">Targeted pain relief therapy.</p>
+<p class="font-bold text-text-main-light dark:text-text-main-dark">45 min • $85</p>
+</div>
+</div>
+</section>
+<!-- Step 2: Therapist -->
+<section>
+<h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">clinical_notes</span>
+                        2. Choose Professional
+                    </h2>
+<div class="flex flex-col sm:flex-row gap-4">
+<label class="relative flex cursor-pointer items-center gap-4 rounded-xl border border-primary bg-primary/5 p-4 transition-all">
+<input checked="" class="peer sr-only" name="therapist" type="radio"/>
+<div class="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full bg-gray-200">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Portrait of Dr. Sarah Smith" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAkx8cRO6dM7WbfANxa9TxrEfwmN5rmSr-rM3GiM6piJ6HPWppDj0TnBmKfXG4VD_VIxb7FBlhCVy-jGd8WngixuEvTp4-u3I6OuGBLuc4YIpL0Ja6WLtLSnG7F1JQt--GqULw6j62cNx_64WMg1nhVH1MaWcvbCGRIs5lKGfMjRfoNC93aDFQcBaKEAaFS7T0O0yllisSyikfIewqzPwsZbBhoXghnzAb7QFp38l6AhaIle2CLYZiM-7_wj8MQMx_E_rUo8cnKSWeg');"></div>
+</div>
+<div>
+<h3 class="font-bold text-text-main-light dark:text-text-main-dark">Dr. Sarah Smith</h3>
+<p class="text-sm text-text-sec-light dark:text-text-sec-dark">Senior Physiotherapist</p>
+</div>
+<div class="ml-auto text-primary">
+<span class="material-symbols-outlined">radio_button_checked</span>
+</div>
+</label>
+<label class="relative flex cursor-pointer items-center gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4 transition-all hover:border-primary/50">
+<input class="peer sr-only" name="therapist" type="radio"/>
+<div class="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full bg-gray-200">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Portrait of Dr. James Doe" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDsT-wP5PyfrnBuG49YQUPDWWDyyDBN-98-TfbFBaUwdwi6ANmg4qZpDR7aSTwPWfASbaptufga6xlDpyZBaIUHZr_6YYnIWxNnA04argTH6mtOkL-OoRqUTRjxZzfUTxcEljqx3ne6VdZkU9SQRSLU9NtqJDl8qK8_FnSPfJlmj8_4ZlQ15IkuTClsfA5SdI-R5oyxSDFReRvD4A-3-5Zmi7-pK677EHWkYfDh-JrVjMjWeOQocQGLLy3X-XBg_tDSUoa8LLEcS_TX');"></div>
+</div>
+<div>
+<h3 class="font-bold text-text-main-light dark:text-text-main-dark">Dr. James Doe</h3>
+<p class="text-sm text-text-sec-light dark:text-text-sec-dark">Sports Specialist</p>
+</div>
+<div class="ml-auto text-gray-300 dark:text-gray-600">
+<span class="material-symbols-outlined">radio_button_unchecked</span>
+</div>
+</label>
+<label class="relative flex cursor-pointer items-center gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4 transition-all hover:border-primary/50">
+<input class="peer sr-only" name="therapist" type="radio"/>
+<div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-background-light dark:bg-background-dark text-text-sec-light">
+<span class="material-symbols-outlined">group</span>
+</div>
+<div>
+<h3 class="font-bold text-text-main-light dark:text-text-main-dark">Any Available</h3>
+<p class="text-sm text-text-sec-light dark:text-text-sec-dark">Earliest slot</p>
+</div>
+<div class="ml-auto text-gray-300 dark:text-gray-600">
+<span class="material-symbols-outlined">radio_button_unchecked</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Step 3: Date & Time -->
+<section>
+<h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+                        3. Date &amp; Time
+                    </h2>
+<div class="flex flex-col md:flex-row gap-6 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 shadow-sm">
+<!-- Calendar Widget -->
+<div class="w-full md:w-1/2">
+<div class="mb-4 flex items-center justify-between">
+<h3 class="text-lg font-bold">October 2023</h3>
+<div class="flex gap-2">
+<button class="flex h-8 w-8 items-center justify-center rounded-full hover:bg-background-light dark:hover:bg-background-dark transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="flex h-8 w-8 items-center justify-center rounded-full hover:bg-background-light dark:hover:bg-background-dark transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center text-sm mb-2">
+<span class="text-text-sec-light dark:text-text-sec-dark font-medium py-2">Su</span>
+<span class="text-text-sec-light dark:text-text-sec-dark font-medium py-2">Mo</span>
+<span class="text-text-sec-light dark:text-text-sec-dark font-medium py-2">Tu</span>
+<span class="text-text-sec-light dark:text-text-sec-dark font-medium py-2">We</span>
+<span class="text-text-sec-light dark:text-text-sec-dark font-medium py-2">Th</span>
+<span class="text-text-sec-light dark:text-text-sec-dark font-medium py-2">Fr</span>
+<span class="text-text-sec-light dark:text-text-sec-dark font-medium py-2">Sa</span>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center text-sm">
+<!-- Previous Month Dates -->
+<span class="py-2 text-gray-300 dark:text-gray-700">29</span>
+<span class="py-2 text-gray-300 dark:text-gray-700">30</span>
+<!-- Current Month -->
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">1</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">2</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">3</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">4</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">5</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">6</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">7</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">8</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">9</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">10</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">11</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">12</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">13</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">14</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">15</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">16</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">17</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">18</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">19</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">20</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">21</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">22</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">23</button>
+<button class="h-9 w-9 mx-auto flex items-center justify-center rounded-full bg-primary text-text-main-light font-bold shadow-md shadow-primary/30">24</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">25</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">26</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">27</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">28</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">29</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">30</button>
+<button class="rounded-full py-2 hover:bg-background-light dark:hover:bg-background-dark">31</button>
+</div>
+</div>
+<!-- Time Slots -->
+<div class="w-full md:w-1/2 border-t md:border-t-0 md:border-l border-border-light dark:border-border-dark pt-6 md:pt-0 md:pl-6">
+<h3 class="text-lg font-bold mb-4">Available Slots</h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="rounded-lg border border-border-light dark:border-border-dark py-2 px-3 text-sm font-medium hover:border-primary hover:text-primary transition-all">09:00 AM</button>
+<button class="rounded-lg border border-border-light dark:border-border-dark py-2 px-3 text-sm font-medium hover:border-primary hover:text-primary transition-all">09:30 AM</button>
+<button class="rounded-lg bg-primary text-text-main-light font-bold py-2 px-3 text-sm shadow-md shadow-primary/20 transition-all transform scale-105">10:00 AM</button>
+<button class="rounded-lg border border-border-light dark:border-border-dark py-2 px-3 text-sm font-medium hover:border-primary hover:text-primary transition-all">10:30 AM</button>
+<button class="rounded-lg border border-border-light dark:border-border-dark py-2 px-3 text-sm font-medium text-gray-300 dark:text-gray-600 cursor-not-allowed decoration-slice">11:00 AM</button>
+<button class="rounded-lg border border-border-light dark:border-border-dark py-2 px-3 text-sm font-medium hover:border-primary hover:text-primary transition-all">11:30 AM</button>
+<button class="rounded-lg border border-border-light dark:border-border-dark py-2 px-3 text-sm font-medium hover:border-primary hover:text-primary transition-all">01:00 PM</button>
+<button class="rounded-lg border border-border-light dark:border-border-dark py-2 px-3 text-sm font-medium hover:border-primary hover:text-primary transition-all">01:30 PM</button>
+</div>
+<p class="mt-4 text-xs text-text-sec-light dark:text-text-sec-dark flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">info</span>
+                                All times are in your local timezone.
+                            </p>
+</div>
+</div>
+</section>
+<!-- Step 4: Your Details -->
+<section>
+<h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">person</span>
+                        4. Your Details
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 shadow-sm">
+<div class="col-span-1">
+<label class="block text-sm font-bold mb-2">First Name</label>
+<input class="w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2.5 text-sm focus:border-primary focus:ring-primary dark:text-text-main-dark" placeholder="e.g. John" type="text"/>
+</div>
+<div class="col-span-1">
+<label class="block text-sm font-bold mb-2">Last Name</label>
+<input class="w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2.5 text-sm focus:border-primary focus:ring-primary dark:text-text-main-dark" placeholder="e.g. Doe" type="text"/>
+</div>
+<div class="col-span-1">
+<label class="block text-sm font-bold mb-2">Email Address</label>
+<input class="w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2.5 text-sm focus:border-primary focus:ring-primary dark:text-text-main-dark" placeholder="john@example.com" type="email"/>
+</div>
+<div class="col-span-1">
+<label class="block text-sm font-bold mb-2">Phone Number</label>
+<input class="w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2.5 text-sm focus:border-primary focus:ring-primary dark:text-text-main-dark" placeholder="(555) 123-4567" type="tel"/>
+</div>
+<div class="col-span-1 md:col-span-2">
+<label class="block text-sm font-bold mb-2">Reason for Visit (Optional)</label>
+<textarea class="w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark px-4 py-2.5 text-sm focus:border-primary focus:ring-primary dark:text-text-main-dark" placeholder="Briefly describe your symptoms..." rows="3"></textarea>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sticky Summary -->
+<div class="lg:col-span-4 relative h-full">
+<div class="sticky top-24 rounded-2xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark p-6 shadow-lg">
+<h3 class="text-xl font-bold mb-6">Appointment Summary</h3>
+<div class="space-y-6">
+<!-- Service Info -->
+<div class="flex gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">self_improvement</span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-sec-light dark:text-text-sec-dark">Service</p>
+<p class="font-bold text-text-main-light dark:text-text-main-dark">Physiotherapy</p>
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark">60 min</p>
+</div>
+</div>
+<div class="h-px bg-border-light dark:bg-border-dark"></div>
+<!-- Therapist Info -->
+<div class="flex gap-4">
+<div class="h-12 w-12 shrink-0 rounded-lg overflow-hidden bg-gray-200">
+<div class="w-full h-full bg-cover bg-center" data-alt="Portrait of Dr. Sarah Smith" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC8Gch2FPF3dMXO5c60dUDGQx-JMebmupoZDuHGH2ZDBOkr6Ud1RfF-Dtytz4MVGnKEusRsGUNkaykrnZ0BRkThL4nxI80GHX6odiMtJsYY5L_24rRrxA3V0Kr_-1lljvkubHUbnJ2tr0gvsyVHGaJCdYKz1N7ZRNmdvrY2AyB0-bbR9Y28o-bwrrPEsmQAWSi38feAIwvNiC308ALvh3n7PI29beqZoPkj8Re_dhBFnCyh97NqUrrtqeuIIbQVjBbHksRYUj_CRRJ_');"></div>
+</div>
+<div>
+<p class="text-sm font-medium text-text-sec-light dark:text-text-sec-dark">Therapist</p>
+<p class="font-bold text-text-main-light dark:text-text-main-dark">Dr. Sarah Smith</p>
+</div>
+</div>
+<div class="h-px bg-border-light dark:bg-border-dark"></div>
+<!-- Date Info -->
+<div class="flex gap-4">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-background-light dark:bg-background-dark text-text-sec-light dark:text-text-sec-dark border border-border-light dark:border-border-dark">
+<span class="material-symbols-outlined">event</span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-sec-light dark:text-text-sec-dark">Date &amp; Time</p>
+<p class="font-bold text-text-main-light dark:text-text-main-dark">Oct 24, 2023</p>
+<p class="text-xs text-text-sec-light dark:text-text-sec-dark">10:00 AM</p>
+</div>
+</div>
+<div class="mt-6 rounded-lg bg-background-light dark:bg-background-dark p-4">
+<div class="flex justify-between mb-2 text-sm">
+<span class="text-text-sec-light dark:text-text-sec-dark">Consultation Fee</span>
+<span class="font-medium">$100.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-text-sec-light dark:text-text-sec-dark">Booking Fee</span>
+<span class="font-medium">$0.00</span>
+</div>
+<div class="my-3 h-px border-dashed border-b border-border-dark/20 dark:border-border-light/20"></div>
+<div class="flex justify-between items-end">
+<span class="font-bold text-lg">Total</span>
+<span class="font-black text-2xl text-primary">$100.00</span>
+</div>
+</div>
+<button class="w-full rounded-lg bg-primary py-4 text-base font-bold text-text-main-light shadow-lg shadow-primary/25 transition-all hover:bg-primary-hover hover:scale-[1.02] active:scale-[0.98]">
+                            Confirm Booking
+                        </button>
+<div class="flex items-center justify-center gap-2 text-xs text-text-sec-light dark:text-text-sec-dark">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span>Secure booking. No payment until visit.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-20 border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark py-10">
+<div class="container mx-auto px-4 lg:px-8 text-center">
+<div class="flex items-center justify-center gap-2 mb-4 text-text-main-light dark:text-text-main-dark">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="font-bold text-lg">ProActive Physiotherapy</h2>
+</div>
+<p class="text-sm text-text-sec-light dark:text-text-sec-dark">© 2023 ProActive Physiotherapy. All rights reserved.</p>
+</div>
+</footer>
+</body></html>
