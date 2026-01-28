@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import db from "@/lib/db";
+import { getDB } from "@/lib/db";
 import bcrypt from "bcryptjs";
 import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
@@ -15,8 +15,12 @@ export async function POST(req: Request) {
         const body = await req.json();
         const { name, email, password } = registerSchema.parse(body);
 
-        const checkStmt = db.prepare("SELECT id FROM users WHERE email = ?");
-        const existingUser = checkStmt.get(email);
+        const db = getDB();
+
+        const existingUser = await db
+            .prepare("SELECT id FROM users WHERE email = ?")
+            .bind(email)
+            .first();
 
         if (existingUser) {
             return NextResponse.json(
@@ -28,10 +32,10 @@ export async function POST(req: Request) {
         const hashedPassword = await bcrypt.hash(password, 10);
         const id = uuidv4();
 
-        const insertStmt = db.prepare(
-            "INSERT INTO users (id, name, email, password) VALUES (?, ?, ?, ?)"
-        );
-        insertStmt.run(id, name, email, hashedPassword);
+        await db
+            .prepare("INSERT INTO users (id, name, email, password) VALUES (?, ?, ?, ?)")
+            .bind(id, name, email, hashedPassword)
+            .run();
 
         return NextResponse.json(
             { message: "User created successfully" },
@@ -48,3 +52,6 @@ export async function POST(req: Request) {
         );
     }
 }
+
+// Enable edge runtime for Cloudflare Pages
+export const runtime = 'edge';

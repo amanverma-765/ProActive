@@ -1,0 +1,9 @@
+name = "proactive-physiotherapy"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "proactive-db"
+database_id = "" # Will be filled after running: npx wrangler d1 create proactive-db

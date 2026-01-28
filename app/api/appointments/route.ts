@@ -1,9 +1,20 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
-import db from "@/lib/db";
+import { getDB } from "@/lib/db";
 import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
+
+interface Appointment {
+    id: string;
+    userId: string;
+    service: string;
+    therapist: string;
+    date: string;
+    time: string;
+    status: string;
+    createdAt: string;
+}
 
 const appointmentSchema = z.object({
     service: z.string(),
@@ -25,10 +36,11 @@ export async function POST(req: Request) {
         const userId = (session.user as any).id;
         const id = uuidv4();
 
-        const stmt = db.prepare(
-            "INSERT INTO appointments (id, userId, service, therapist, date, time) VALUES (?, ?, ?, ?, ?, ?)"
-        );
-        stmt.run(id, userId, service, therapist, date, time);
+        const db = getDB();
+        await db
+            .prepare("INSERT INTO appointments (id, userId, service, therapist, date, time) VALUES (?, ?, ?, ?, ?, ?)")
+            .bind(id, userId, service, therapist, date, time)
+            .run();
 
         return NextResponse.json(
             { message: "Appointment booked successfully", id },
@@ -52,10 +64,12 @@ export async function GET(req: Request) {
         }
 
         const userId = (session.user as any).id;
-        const stmt = db.prepare(
-            "SELECT * FROM appointments WHERE userId = ? ORDER BY createdAt DESC"
-        );
-        const appointments = stmt.all(userId);
+        const db = getDB();
+
+        const { results: appointments } = await db
+            .prepare("SELECT * FROM appointments WHERE userId = ? ORDER BY createdAt DESC")
+            .bind(userId)
+            .all<Appointment>();
 
         return NextResponse.json(appointments);
     } catch (error) {
@@ -66,3 +80,6 @@ export async function GET(req: Request) {
         );
     }
 }
+
+// Enable edge runtime for Cloudflare Pages
+export const runtime = 'edge';

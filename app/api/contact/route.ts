@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import db from "@/lib/db";
+import { getDB } from "@/lib/db";
 import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
 
@@ -17,10 +17,11 @@ export async function POST(req: Request) {
         const { firstName, lastName, email, subject, message } = contactSchema.parse(body);
         const id = uuidv4();
 
-        const stmt = db.prepare(
-            "INSERT INTO contact_messages (id, firstName, lastName, email, subject, message) VALUES (?, ?, ?, ?, ?, ?)"
-        );
-        stmt.run(id, firstName, lastName, email, subject, message);
+        const db = getDB();
+        await db
+            .prepare("INSERT INTO contact_messages (id, firstName, lastName, email, subject, message) VALUES (?, ?, ?, ?, ?, ?)")
+            .bind(id, firstName, lastName, email, subject, message)
+            .run();
 
         return NextResponse.json(
             { message: "Message sent successfully" },
@@ -34,3 +35,6 @@ export async function POST(req: Request) {
         );
     }
 }
+
+// Enable edge runtime for Cloudflare Pages
+export const runtime = 'edge';

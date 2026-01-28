@@ -6,14 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat",
+    "pages:deploy": "npm run pages:build && npx wrangler pages deploy .vercel/output/static",
+    "d1:create": "npx wrangler d1 create proactive-db",
+    "d1:migrate": "npx wrangler d1 migrations apply proactive-db",
+    "d1:migrate:local": "npx wrangler d1 migrations apply proactive-db --local",
+    "d1:studio": "npx wrangler d1 studio proactive-db"
   },
   "dependencies": {
+    "@cloudflare/next-on-pages": "^1.13.0",
     "@hookform/resolvers": "^3.3.4",
     "@types/bcryptjs": "^2.4.6",
     "@types/uuid": "^10.0.0",
     "bcryptjs": "^3.0.3",
-    "better-sqlite3": "^12.6.2",
     "clsx": "^2.1.0",
     "lucide-react": "^0.344.0",
     "next": "^14.2.35",
@@ -27,7 +34,6 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
-    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -36,6 +42,7 @@
     "eslint-config-next": "^16.1.6",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^3.80.0"
   }
 }
