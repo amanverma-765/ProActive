@@ -36,7 +36,7 @@ export async function POST(req: Request) {
         const userId = (session.user as any).id;
         const id = uuidv4();
 
-        const db = getDB();
+        const db = await getDB();
         await db
             .prepare("INSERT INTO appointments (id, userId, service, therapist, date, time) VALUES (?, ?, ?, ?, ?, ?)")
             .bind(id, userId, service, therapist, date, time)
@@ -64,7 +64,7 @@ export async function GET(req: Request) {
         }
 
         const userId = (session.user as any).id;
-        const db = getDB();
+        const db = await getDB();
 
         const { results: appointments } = await db
             .prepare("SELECT * FROM appointments WHERE userId = ? ORDER BY createdAt DESC")
@@ -80,6 +80,3 @@ export async function GET(req: Request) {
         );
     }
 }
-
-// Enable edge runtime for Cloudflare Pages
-export const runtime = 'edge';

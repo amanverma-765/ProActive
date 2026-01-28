@@ -1,9 +1,10 @@
 name = "proactive-physiotherapy"
 compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".open-next/assets"
 
 # D1 Database binding
 [[d1_databases]]
 binding = "DB"
 database_name = "proactive-db"
-database_id = "" # Will be filled after running: npx wrangler d1 create proactive-db
+database_id = "2e1d6e0c-86a0-424f-a04c-ca6db8d5e30f"

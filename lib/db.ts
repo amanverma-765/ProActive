@@ -1,4 +1,4 @@
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 
 export interface Env {
     DB: D1Database;
@@ -8,8 +8,8 @@ export interface Env {
  * Get the D1 database instance from the Cloudflare request context.
  * This must be called within a request handler (API route).
  */
-export function getDB(): D1Database {
-    const { env } = getRequestContext();
+export async function getDB(): Promise<D1Database> {
+    const { env } = await getCloudflareContext();
     return env.DB;
 }
 

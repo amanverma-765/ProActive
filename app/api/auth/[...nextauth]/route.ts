@@ -23,7 +23,7 @@ export const authOptions: any = {
                     return null;
                 }
 
-                const db = getDB();
+                const db = await getDB();
                 const user = await db
                     .prepare("SELECT * FROM users WHERE email = ?")
                     .bind(credentials.email)
@@ -72,6 +72,3 @@ export const authOptions: any = {
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
-
-// Enable edge runtime for Cloudflare Pages
-export const runtime = 'edge';

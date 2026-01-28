@@ -15,7 +15,7 @@ export async function POST(req: Request) {
         const body = await req.json();
         const { name, email, password } = registerSchema.parse(body);
 
-        const db = getDB();
+        const db = await getDB();
 
         const existingUser = await db
             .prepare("SELECT id FROM users WHERE email = ?")
@@ -52,6 +52,3 @@ export async function POST(req: Request) {
         );
     }
 }
-
-// Enable edge runtime for Cloudflare Pages
-export const runtime = 'edge';

@@ -17,7 +17,7 @@ export async function POST(req: Request) {
         const { firstName, lastName, email, subject, message } = contactSchema.parse(body);
         const id = uuidv4();
 
-        const db = getDB();
+        const db = await getDB();
         await db
             .prepare("INSERT INTO contact_messages (id, firstName, lastName, email, subject, message) VALUES (?, ?, ?, ?, ?, ?)")
             .bind(id, firstName, lastName, email, subject, message)
@@ -35,6 +35,3 @@ export async function POST(req: Request) {
         );
     }
 }
-
-// Enable edge runtime for Cloudflare Pages
-export const runtime = 'edge';
